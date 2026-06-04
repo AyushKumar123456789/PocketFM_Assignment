@@ -1,0 +1,29 @@
+owner: spf13
+repo: cobra
+clone_url: https://github.com/spf13/cobra.git
+default_branch: main
+
+build_cmd:  ["go", "build", "./..."]
+test_cmd:   ["go", "test", "-count=1", "./..."]
+vet_cmd:    ["go", "vet", "./..."]
+fmt_cmd:    ["gofmt", "-w"]
+
+convention_paths:
+  - CONTRIBUTING.md
+  - README.md
+
+ignore_globs:
+  - "vendor/**"
+  - "**/testdata/**"
+  - "**/*.pb.go"
+  - "site/**"
+  - "docs/**"
+
+project_notes: |
+  Cobra is a CLI library. Most issues touch:
+    - command.go            (Command struct, Execute, AddCommand)
+    - flag handling         (interactions with spf13/pflag)
+    - completions/          (shell completion generators)
+    - doc/                  (man/yaml/md doc generators)
+  Style: idiomatic Go, plain functions over interfaces unless mocking is needed.
+  Tests live next to source as *_test.go and use the standard testing package.

@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+goagent.egg-info/
+.venv/
+venv/
+env/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+dist/
+build/
+
+# Environment
+.env
+.env.local
+
+# Runtime workspaces (cloned target repos can be GB-sized)
+workspaces/*/
+!workspaces/.gitkeep
+
+# Per-run traces. samples/ is checked in; runs/ is not.
+runs/*/
+!runs/.gitkeep
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp

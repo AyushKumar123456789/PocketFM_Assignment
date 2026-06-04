@@ -1,0 +1,53 @@
+diff --git a/bash_completions.go b/bash_completions.go
+index f4d198c..6a33f51 100644
+--- a/bash_completions.go
++++ b/bash_completions.go
+@@ -76,6 +76,21 @@ __%[1]s_handle_go_custom_completion()
+ {
+     __%[1]s_debug "${FUNCNAME[0]}: cur is ${cur}, words[*] is ${words[*]}, #words[@] is ${#words[@]}"
+ 
++    # Bash may split words on ":" which is part of COMP_WORDBREAKS by default.
++    # Reassemble the current word if it was split on a colon.
++    if [[ "$COMP_WORDBREAKS" == *:* ]]; then
++        local i
++        for ((i=cword-1; i>=1; i--)); do
++            if [[ "${words[i]}" == *: || "${words[i]}" == ":" ]]; then
++                cur="${words[i]}${cur}"
++                cword=$((cword-1))
++            else
++                break
++            fi
++        done
++        __%[1]s_debug "${FUNCNAME[0]}: after colon reassembly: cur is ${cur}, cword is ${cword}"
++    fi
++
+     local shellCompDirectiveError=%[3]d
+     local shellCompDirectiveNoSpace=%[4]d
+     local shellCompDirectiveNoFileComp=%[5]d
+diff --git a/bash_completionsV2.go b/bash_completionsV2.go
+index faccbdd..ab9e47e 100644
+--- a/bash_completionsV2.go
++++ b/bash_completionsV2.go
+@@ -448,6 +448,22 @@ __start_%[1]s()
+     words=("${words[@]:0:$cword+1}")
+     __%[1]s_debug "Truncated words[*]: ${words[*]},"
+ 
++    # Bash may split words on ":" which is part of COMP_WORDBREAKS by default.
++    # Reassemble the current word if it was split on a colon.
++    if [[ "$COMP_WORDBREAKS" == *:* ]]; then
++        local i
++        for ((i=cword-1; i>=1; i--)); do
++            # If the previous word ends with a colon or is a colon, prepend it to cur
++            if [[ "${words[i]}" == *: || "${words[i]}" == ":" ]]; then
++                cur="${words[i]}${cur}"
++                cword=$((cword-1))
++            else
++                break
++            fi
++        done
++        __%[1]s_debug "After colon reassembly: cur is ${cur}, cword is ${cword}"
++    fi
++
+     local out directive
+     __%[1]s_get_completion_results
+     __%[1]s_process_completion_results

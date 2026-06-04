@@ -1,0 +1,30 @@
+owner: gin-gonic
+repo: gin
+clone_url: https://github.com/gin-gonic/gin.git
+default_branch: master
+
+build_cmd:  ["go", "build", "./..."]
+test_cmd:   ["go", "test", "-count=1", "./..."]
+vet_cmd:    ["go", "vet", "./..."]
+fmt_cmd:    ["gofmt", "-w"]
+
+convention_paths:
+  - CONTRIBUTING.md
+  - README.md
+  - BENCHMARKS.md
+
+ignore_globs:
+  - "vendor/**"
+  - "**/testdata/**"
+  - "docs/**"
+  - "examples/**"
+
+project_notes: |
+  Gin is an HTTP web framework. Hot spots:
+    - context.go            (gin.Context, request/response helpers)
+    - routergroup.go        (route registration)
+    - tree.go               (httprouter-derived radix tree)
+    - binding/              (JSON/Form/XML binding & validation)
+    - render/               (response rendering)
+  Style: performance-sensitive; avoid allocations in hot paths.
+  Benchmarks live in *_test.go alongside unit tests.

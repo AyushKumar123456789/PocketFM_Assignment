@@ -1,0 +1,29 @@
+owner: go-playground
+repo: validator
+clone_url: https://github.com/go-playground/validator.git
+default_branch: master
+
+build_cmd:  ["go", "build", "./..."]
+test_cmd:   ["go", "test", "-count=1", "./..."]
+vet_cmd:    ["go", "vet", "./..."]
+fmt_cmd:    ["gofmt", "-w"]
+
+convention_paths:
+  - README.md
+  - doc.go
+
+ignore_globs:
+  - "vendor/**"
+  - "**/testdata/**"
+  - "_examples/**"
+  - "translations/**/*_test.go"
+
+project_notes: |
+  go-playground/validator validates structs via struct tags. Most issues
+  touch:
+    - baked_in.go     (built-in validation functions: required, email, ...)
+    - validator.go    (validate fn dispatch)
+    - regexes.go      (compiled regexes for built-ins)
+    - translations/   (i18n error messages)
+  Adding a new validator = registering a func in baked_in.go and adding
+  tests in validator_test.go. Style: lots of small dispatch funcs.

@@ -1,0 +1,35 @@
+# Evaluation fixtures: tuples of (repo_config_name, issue_number, accepted_pr_number).
+#
+# The eval harness runs the agent on each issue and compares its produced
+# changes against the actual accepted PR using:
+#   1. Files Jaccard   — overlap between agent-changed files and PR-changed files
+#   2. Tests pass      — did the agent's branch leave `go test ./...` green?
+#   3. LLM-as-judge    — separate Claude call rates root-cause similarity 1-5
+#
+# Pick closed bug-fix issues with reasonably-scoped PRs (1-3 files). Avoid
+# feature requests, large refactors, and issues whose PR also touched
+# unrelated cleanups.
+#
+# To add a fixture: find a closed issue on the target repo whose linked PR
+# is small and focused, then add a `- repo: ..., issue: ..., pr: ...` block.
+
+fixtures:
+  # === spf13/cobra ===
+  # Note to reviewers: fill in real (issue, PR) tuples here when running
+  # the eval. The two below are placeholders so the file parses; the agent
+  # will fail cleanly with "issue not found" if these aren't valid.
+  - repo: cobra
+    issue: 0       # <-- placeholder; replace with a real closed-issue number
+    pr: 0
+    description: "placeholder fixture — replace with a real closed bug-fix issue"
+
+  # === gin-gonic/gin ===
+  - repo: gin
+    issue: 0
+    pr: 0
+    description: "placeholder fixture"
+
+# How to find good fixtures programmatically:
+#   gh issue list -R spf13/cobra --state closed --label bug \
+#     --limit 50 --json number,title,closedAt,linkedPullRequests \
+#     | jq '.[] | select(.linkedPullRequests | length == 1)'

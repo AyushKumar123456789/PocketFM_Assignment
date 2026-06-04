@@ -1,0 +1,1244 @@
+{
+  "repo_slug": "spf13/cobra",
+  "commit_sha": "ad460ea8f249db69c943a365fb84f3a59042d54e",
+  "file_count": 19,
+  "packages": [
+    {
+      "path": "",
+      "go_package": "cobra",
+      "doc": "Copyright 2013-2023 The Cobra Authors  Licensed under the Apache License, Version 2.0 (the \"License\"); you may not use this file except in compliance with the License. You may obtain a copy of the Lic",
+      "files": [
+        "active_help.go",
+        "args.go",
+        "bash_completions.go",
+        "bash_completionsV2.go",
+        "cobra.go",
+        "command.go",
+        "command_notwin.go",
+        "command_win.go",
+        "completions.go",
+        "fish_completions.go",
+        "flag_groups.go",
+        "powershell_completions.go",
+        "shell_completions.go",
+        "zsh_completions.go"
+      ],
+      "symbols": [
+        {
+          "name": "AppendActiveHelp",
+          "kind": "func",
+          "file": "active_help.go",
+          "line": 38
+        },
+        {
+          "name": "GetActiveHelpConfig",
+          "kind": "func",
+          "file": "active_help.go",
+          "line": 47
+        },
+        {
+          "name": "NoArgs",
+          "kind": "func",
+          "file": "args.go",
+          "line": 42
+        },
+        {
+          "name": "OnlyValidArgs",
+          "kind": "func",
+          "file": "args.go",
+          "line": 51
+        },
+        {
+          "name": "NoDuplicateArgs",
+          "kind": "func",
+          "file": "args.go",
+          "line": 69
+        },
+        {
+          "name": "ArbitraryArgs",
+          "kind": "func",
+          "file": "args.go",
+          "line": 82
+        },
+        {
+          "name": "MinimumNArgs",
+          "kind": "func",
+          "file": "args.go",
+          "line": 87
+        },
+        {
+          "name": "MaximumNArgs",
+          "kind": "func",
+          "file": "args.go",
+          "line": 97
+        },
+        {
+          "name": "ExactArgs",
+          "kind": "func",
+          "file": "args.go",
+          "line": 107
+        },
+        {
+          "name": "RangeArgs",
+          "kind": "func",
+          "file": "args.go",
+          "line": 117
+        },
+        {
+          "name": "MatchAll",
+          "kind": "func",
+          "file": "args.go",
+          "line": 127
+        },
+        {
+          "name": "ExactValidArgs",
+          "kind": "func",
+          "file": "args.go",
+          "line": 142
+        },
+        {
+          "name": "PositionalArgs",
+          "kind": "type",
+          "file": "args.go",
+          "line": 22
+        },
+        {
+          "name": "GenBashCompletion",
+          "kind": "func",
+          "file": "bash_completions.go",
+          "line": 683
+        },
+        {
+          "name": "GenBashCompletionFile",
+          "kind": "func",
+          "file": "bash_completions.go",
+          "line": 701
+        },
+        {
+          "name": "GenBashCompletionFileV2",
+          "kind": "func",
+          "file": "bash_completionsV2.go",
+          "line": 470
+        },
+        {
+          "name": "GenBashCompletionV2",
+          "kind": "func",
+          "file": "bash_completionsV2.go",
+          "line": 482
+        },
+        {
+          "name": "AddTemplateFunc",
+          "kind": "func",
+          "file": "cobra.go",
+          "line": 85
+        },
+        {
+          "name": "AddTemplateFuncs",
+          "kind": "func",
+          "file": "cobra.go",
+          "line": 91
+        },
+        {
+          "name": "OnInitialize",
+          "kind": "func",
+          "file": "cobra.go",
+          "line": 99
+        },
+        {
+          "name": "OnFinalize",
+          "kind": "func",
+          "file": "cobra.go",
+          "line": 105
+        },
+        {
+          "name": "Gt",
+          "kind": "func",
+          "file": "cobra.go",
+          "line": 114
+        },
+        {
+          "name": "Eq",
+          "kind": "func",
+          "file": "cobra.go",
+          "line": 144
+        },
+        {
+          "name": "CheckErr",
+          "kind": "func",
+          "file": "cobra.go",
+          "line": 235
+        },
+        {
+          "name": "WriteStringAndCheck",
+          "kind": "func",
+          "file": "cobra.go",
+          "line": 243
+        },
+        {
+          "name": "EnablePrefixMatching",
+          "kind": "var",
+          "file": "cobra.go",
+          "line": 55
+        },
+        {
+          "name": "EnableCommandSorting",
+          "kind": "var",
+          "file": "cobra.go",
+          "line": 59
+        },
+        {
+          "name": "EnableCaseInsensitive",
+          "kind": "var",
+          "file": "cobra.go",
+          "line": 62
+        },
+        {
+          "name": "EnableTraverseRunHooks",
+          "kind": "var",
+          "file": "cobra.go",
+          "line": 66
+        },
+        {
+          "name": "MousetrapHelpText",
+          "kind": "var",
+          "file": "cobra.go",
+          "line": 72
+        },
+        {
+          "name": "MousetrapDisplayDuration",
+          "kind": "var",
+          "file": "cobra.go",
+          "line": 81
+        },
+        {
+          "name": "Context",
+          "kind": "func",
+          "file": "command.go",
+          "line": 269
+        },
+        {
+          "name": "SetContext",
+          "kind": "func",
+          "file": "command.go",
+          "line": 275
+        },
+        {
+          "name": "SetArgs",
+          "kind": "func",
+          "file": "command.go",
+          "line": 281
+        },
+        {
+          "name": "SetOutput",
+          "kind": "func",
+          "file": "command.go",
+          "line": 289
+        },
+        {
+          "name": "SetOut",
+          "kind": "func",
+          "file": "command.go",
+          "line": 296
+        },
+        {
+          "name": "SetErr",
+          "kind": "func",
+          "file": "command.go",
+          "line": 302
+        },
+        {
+          "name": "SetIn",
+          "kind": "func",
+          "file": "command.go",
+          "line": 308
+        },
+        {
+          "name": "SetUsageFunc",
+          "kind": "func",
+          "file": "command.go",
+          "line": 313
+        },
+        {
+          "name": "SetUsageTemplate",
+          "kind": "func",
+          "file": "command.go",
+          "line": 318
+        },
+        {
+          "name": "SetFlagErrorFunc",
+          "kind": "func",
+          "file": "command.go",
+          "line": 328
+        },
+        {
+          "name": "SetHelpFunc",
+          "kind": "func",
+          "file": "command.go",
+          "line": 333
+        },
+        {
+          "name": "SetHelpCommand",
+          "kind": "func",
+          "file": "command.go",
+          "line": 338
+        },
+        {
+          "name": "SetHelpCommandGroupID",
+          "kind": "func",
+          "file": "command.go",
+          "line": 343
+        },
+        {
+          "name": "SetCompletionCommandGroupID",
+          "kind": "func",
+          "file": "command.go",
+          "line": 352
+        },
+        {
+          "name": "SetHelpTemplate",
+          "kind": "func",
+          "file": "command.go",
+          "line": 358
+        },
+        {
+          "name": "SetVersionTemplate",
+          "kind": "func",
+          "file": "command.go",
+          "line": 367
+        },
+        {
+          "name": "SetErrPrefix",
+          "kind": "func",
+          "file": "command.go",
+          "line": 376
+        },
+        {
+          "name": "SetGlobalNormalizationFunc",
+          "kind": "func",
+          "file": "command.go",
+          "line": 382
+        },
+        {
+          "name": "OutOrStdout",
+          "kind": "func",
+          "file": "command.go",
+          "line": 393
+        },
+        {
+          "name": "OutOrStderr",
+          "kind": "func",
+          "file": "command.go",
+          "line": 398
+        },
+        {
+          "name": "ErrOrStderr",
+          "kind": "func",
+          "file": "command.go",
+          "line": 403
+        },
+        {
+          "name": "InOrStdin",
+          "kind": "func",
+          "file": "command.go",
+          "line": 408
+        },
+        {
+          "name": "UsageFunc",
+          "kind": "func",
+          "file": "command.go",
+          "line": 444
+        },
+        {
+          "name": "Usage",
+          "kind": "func",
+          "file": "command.go",
+          "line": 478
+        },
+        {
+          "name": "HelpFunc",
+          "kind": "func",
+          "file": "command.go",
+          "line": 484
+        },
+        {
+          "name": "Help",
+          "kind": "func",
+          "file": "command.go",
+          "line": 520
+        },
+        {
+          "name": "UsageString",
+          "kind": "func",
+          "file": "command.go",
+          "line": 526
+        },
+        {
+          "name": "FlagErrorFunc",
+          "kind": "func",
+          "file": "command.go",
+          "line": 547
+        },
+        {
+          "name": "UsagePadding",
+          "kind": "func",
+          "file": "command.go",
+          "line": 563
+        },
+        {
+          "name": "CommandPathPadding",
+          "kind": "func",
+          "file": "command.go",
+          "line": 573
+        },
+        {
+          "name": "NamePadding",
+          "kind": "func",
+          "file": "command.go",
+          "line": 583
+        },
+        {
+          "name": "UsageTemplate",
+          "kind": "func",
+          "file": "command.go",
+          "line": 592
+        },
+        {
+          "name": "HelpTemplate",
+          "kind": "func",
+          "file": "command.go",
+          "line": 605
+        },
+        {
+          "name": "VersionTemplate",
+          "kind": "func",
+          "file": "command.go",
+          "line": 618
+        },
+        {
+          "name": "ErrPrefix",
+          "kind": "func",
+          "file": "command.go",
+          "line": 643
+        },
+        {
+          "name": "Find",
+          "kind": "func",
+          "file": "command.go",
+          "line": 757
+        },
+        {
+          "name": "Traverse",
+          "kind": "func",
+          "file": "command.go",
+          "line": 821
+        },
+        {
+          "name": "SuggestionsFor",
+          "kind": "func",
+          "file": "command.go",
+          "line": 863
+        },
+        {
+          "name": "VisitParents",
+          "kind": "func",
+          "file": "command.go",
+          "line": 884
+        },
+        {
+          "name": "Root",
+          "kind": "func",
+          "file": "command.go",
+          "line": 892
+        },
+        {
+          "name": "ArgsLenAtDash",
+          "kind": "func",
+          "file": "command.go",
+          "line": 901
+        },
+        {
+          "name": "ExecuteContext",
+          "kind": "func",
+          "file": "command.go",
+          "line": 1062
+        },
+        {
+          "name": "Execute",
+          "kind": "func",
+          "file": "command.go",
+          "line": 1070
+        },
+        {
+          "name": "ExecuteContextC",
+          "kind": "func",
+          "file": "command.go",
+          "line": 1078
+        },
+        {
+          "name": "ExecuteC",
+          "kind": "func",
+          "file": "command.go",
+          "line": 1084
+        },
+        {
+          "name": "ValidateArgs",
+          "kind": "func",
+          "file": "command.go",
+          "line": 1172
+        },
+        {
+          "name": "ValidateRequiredFlags",
+          "kind": "func",
+          "file": "command.go",
+          "line": 1180
+        },
+        {
+          "name": "InitDefaultHelpFlag",
+          "kind": "func",
+          "file": "command.go",
+          "line": 1219
+        },
+        {
+          "name": "InitDefaultVersionFlag",
+          "kind": "func",
+          "file": "command.go",
+          "line": 1238
+        },
+        {
+          "name": "InitDefaultHelpCmd",
+          "kind": "func",
+          "file": "command.go",
+          "line": 1263
+        },
+        {
+          "name": "ResetCommands",
+          "kind": "func",
+          "file": "command.go",
+          "line": 1317
+        },
+        {
+          "name": "Len",
+          "kind": "func",
+          "file": "command.go",
+          "line": 1327
+        },
+        {
+          "name": "Swap",
+          "kind": "func",
+          "file": "command.go",
+          "line": 1328
+        },
+        {
+          "name": "Less",
+          "kind": "func",
+          "file": "command.go",
+          "line": 1329
+        },
+        {
+          "name": "Commands",
+          "kind": "func",
+          "file": "command.go",
+          "line": 1332
+        },
+        {
+          "name": "AddCommand",
+          "kind": "func",
+          "file": "command.go",
+          "line": 1342
+        },
+        {
+          "name": "Groups",
+          "kind": "func",
+          "file": "command.go",
+          "line": 1371
+        },
+        {
+          "name": "AllChildCommandsHaveGroup",
+          "kind": "func",
+          "file": "command.go",
+          "line": 1376
+        },
+        {
+          "name": "ContainsGroup",
+          "kind": "func",
+          "file": "command.go",
+          "line": 1386
+        },
+        {
+          "name": "AddGroup",
+          "kind": "func",
+          "file": "command.go",
+          "line": 1396
+        },
+        {
+          "name": "RemoveCommand",
+          "kind": "func",
+          "file": "command.go",
+          "line": 1401
+        },
+        {
+          "name": "Print",
+          "kind": "func",
+          "file": "command.go",
+          "line": 1435
+        },
+        {
+          "name": "Println",
+          "kind": "func",
+          "file": "command.go",
+          "line": 1440
+        },
+        {
+          "name": "Printf",
+          "kind": "func",
+          "file": "command.go",
+          "line": 1445
+        },
+        {
+          "name": "PrintErr",
+          "kind": "func",
+          "file": "command.go",
+          "line": 1450
+        },
+        {
+          "name": "PrintErrln",
+          "kind": "func",
+          "file": "command.go",
+          "line": 1455
+        },
+        {
+          "name": "PrintErrf",
+          "kind": "func",
+          "file": "command.go",
+          "line": 1460
+        },
+        {
+          "name": "CommandPath",
+          "kind": "func",
+          "file": "command.go",
+          "line": 1465
+        },
+        {
+          "name": "DisplayName",
+          "kind": "func",
+          "file": "command.go",
+          "line": 1474
+        },
+        {
+          "name": "UseLine",
+          "kind": "func",
+          "file": "command.go",
+          "line": 1482
+        },
+        {
+          "name": "DebugFlags",
+          "kind": "func",
+          "file": "command.go",
+          "line": 1501
+        },
+        {
+          "name": "Name",
+          "kind": "func",
+          "file": "command.go",
+          "line": 1541
+        },
+        {
+          "name": "HasAlias",
+          "kind": "func",
+          "file": "command.go",
+          "line": 1551
+        },
+        {
+          "name": "CalledAs",
+          "kind": "func",
+          "file": "command.go",
+          "line": 1562
+        },
+        {
+          "name": "NameAndAliases",
+          "kind": "func",
+          "file": "command.go",
+          "line": 1586
+        },
+        {
+          "name": "HasExample",
+          "kind": "func",
+          "file": "command.go",
+          "line": 1591
+        },
+        {
+          "name": "Runnable",
+          "kind": "func",
+          "file": "command.go",
+          "line": 1596
+        },
+        {
+          "name": "HasSubCommands",
+          "kind": "func",
+          "file": "command.go",
+          "line": 1601
+        },
+        {
+          "name": "IsAvailableCommand",
+          "kind": "func",
+          "file": "command.go",
+          "line": 1607
+        },
+        {
+          "name": "IsAdditionalHelpTopicCommand",
+          "kind": "func",
+          "file": "command.go",
+          "line": 1628
+        },
+        {
+          "name": "HasHelpSubCommands",
+          "kind": "func",
+          "file": "command.go",
+          "line": 1648
+        },
+        {
+          "name": "HasAvailableSubCommands",
+          "kind": "func",
+          "file": "command.go",
+          "line": 1662
+        },
+        {
+          "name": "HasParent",
+          "kind": "func",
+          "file": "command.go",
+          "line": 1677
+        },
+        {
+          "name": "GlobalNormalizationFunc",
+          "kind": "func",
+          "file": "command.go",
+          "line": 1682
+        },
+        {
+          "name": "Flags",
+          "kind": "func",
+          "file": "command.go",
+          "line": 1688
+        },
+        {
+          "name": "LocalNonPersistentFlags",
+          "kind": "func",
+          "file": "command.go",
+          "line": 1702
+        },
+        {
+          "name": "LocalFlags",
+          "kind": "func",
+          "file": "command.go",
+          "line": 1716
+        },
+        {
+          "name": "InheritedFlags",
+          "kind": "func",
+          "file": "command.go",
+          "line": 1744
+        },
+        {
+          "name": "NonInheritedFlags",
+          "kind": "func",
+          "file": "command.go",
+          "line": 1770
+        },
+        {
+          "name": "PersistentFlags",
+          "kind": "func",
+          "file": "command.go",
+          "line": 1775
+        },
+        {
+          "name": "ResetFlags",
+          "kind": "func",
+          "file": "command.go",
+          "line": 1787
+        },
+        {
+          "name": "HasFlags",
+          "kind": "func",
+          "file": "command.go",
+          "line": 1801
+        },
+        {
+          "name": "HasPersistentFlags",
+          "kind": "func",
+          "file": "command.go",
+          "line": 1806
+        },
+        {
+          "name": "HasLocalFlags",
+          "kind": "func",
+          "file": "command.go",
+          "line": 1811
+        },
+        {
+          "name": "HasInheritedFlags",
+          "kind": "func",
+          "file": "command.go",
+          "line": 1816
+        },
+        {
+          "name": "HasAvailableFlags",
+          "kind": "func",
+          "file": "command.go",
+          "line": 1822
+        },
+        {
+          "name": "HasAvailablePersistentFlags",
+          "kind": "func",
+          "file": "command.go",
+          "line": 1827
+        },
+        {
+          "name": "HasAvailableLocalFlags",
+          "kind": "func",
+          "file": "command.go",
+          "line": 1833
+        },
+        {
+          "name": "HasAvailableInheritedFlags",
+          "kind": "func",
+          "file": "command.go",
+          "line": 1839
+        },
+        {
+          "name": "Flag",
+          "kind": "func",
+          "file": "command.go",
+          "line": 1844
+        },
+        {
+          "name": "ParseFlags",
+          "kind": "func",
+          "file": "command.go",
+          "line": 1868
+        },
+        {
+          "name": "Parent",
+          "kind": "func",
+          "file": "command.go",
+          "line": 1892
+        },
+        {
+          "name": "FParseErrWhitelist",
+          "kind": "type",
+          "file": "command.go",
+          "line": 42
+        },
+        {
+          "name": "Group",
+          "kind": "type",
+          "file": "command.go",
+          "line": 45
+        },
+        {
+          "name": "Command",
+          "kind": "type",
+          "file": "command.go",
+          "line": 54
+        },
+        {
+          "name": "Error",
+          "kind": "func",
+          "file": "completions.go",
+          "line": 52
+        },
+        {
+          "name": "SetDefaultShellCompDirective",
+          "kind": "func",
+          "file": "completions.go",
+          "line": 123
+        },
+        {
+          "name": "CompletionWithDesc",
+          "kind": "func",
+          "file": "completions.go",
+          "line": 142
+        },
+        {
+          "name": "NoFileCompletions",
+          "kind": "func",
+          "file": "completions.go",
+          "line": 151
+        },
+        {
+          "name": "FixedCompletions",
+          "kind": "func",
+          "file": "completions.go",
+          "line": 160
+        },
+        {
+          "name": "RegisterFlagCompletionFunc",
+          "kind": "func",
+          "file": "completions.go",
+          "line": 170
+        },
+        {
+          "name": "GetFlagCompletionFunc",
+          "kind": "func",
+          "file": "completions.go",
+          "line": 186
+        },
+        {
+          "name": "InitDefaultCompletionCmd",
+          "kind": "func",
+          "file": "completions.go",
+          "line": 748
+        },
+        {
+          "name": "CompDebug",
+          "kind": "func",
+          "file": "completions.go",
+          "line": 955
+        },
+        {
+          "name": "CompDebugln",
+          "kind": "func",
+          "file": "completions.go",
+          "line": 980
+        },
+        {
+          "name": "CompError",
+          "kind": "func",
+          "file": "completions.go",
+          "line": 985
+        },
+        {
+          "name": "CompErrorln",
+          "kind": "func",
+          "file": "completions.go",
+          "line": 991
+        },
+        {
+          "name": "ShellCompDirective",
+          "kind": "type",
+          "file": "completions.go",
+          "line": 45
+        },
+        {
+          "name": "CompletionOptions",
+          "kind": "type",
+          "file": "completions.go",
+          "line": 107
+        },
+        {
+          "name": "Completion",
+          "kind": "type",
+          "file": "completions.go",
+          "line": 136
+        },
+        {
+          "name": "CompletionFunc",
+          "kind": "type",
+          "file": "completions.go",
+          "line": 139
+        },
+        {
+          "name": "SliceValue",
+          "kind": "type",
+          "file": "completions.go",
+          "line": 311
+        },
+        {
+          "name": "GenFishCompletion",
+          "kind": "func",
+          "file": "fish_completions.go",
+          "line": 276
+        },
+        {
+          "name": "GenFishCompletionFile",
+          "kind": "func",
+          "file": "fish_completions.go",
+          "line": 284
+        },
+        {
+          "name": "MarkFlagsRequiredTogether",
+          "kind": "func",
+          "file": "flag_groups.go",
+          "line": 33
+        },
+        {
+          "name": "MarkFlagsOneRequired",
+          "kind": "func",
+          "file": "flag_groups.go",
+          "line": 49
+        },
+        {
+          "name": "MarkFlagsMutuallyExclusive",
+          "kind": "func",
+          "file": "flag_groups.go",
+          "line": 65
+        },
+        {
+          "name": "ValidateFlagGroups",
+          "kind": "func",
+          "file": "flag_groups.go",
+          "line": 81
+        },
+        {
+          "name": "GenPowerShellCompletionFile",
+          "kind": "func",
+          "file": "powershell_completions.go",
+          "line": 331
+        },
+        {
+          "name": "GenPowerShellCompletion",
+          "kind": "func",
+          "file": "powershell_completions.go",
+          "line": 337
+        },
+        {
+          "name": "GenPowerShellCompletionFileWithDesc",
+          "kind": "func",
+          "file": "powershell_completions.go",
+          "line": 342
+        },
+        {
+          "name": "GenPowerShellCompletionWithDesc",
+          "kind": "func",
+          "file": "powershell_completions.go",
+          "line": 348
+        },
+        {
+          "name": "MarkFlagRequired",
+          "kind": "func",
+          "file": "shell_completions.go",
+          "line": 24
+        },
+        {
+          "name": "MarkPersistentFlagRequired",
+          "kind": "func",
+          "file": "shell_completions.go",
+          "line": 31
+        },
+        {
+          "name": "MarkFlagRequired",
+          "kind": "func",
+          "file": "shell_completions.go",
+          "line": 38
+        },
+        {
+          "name": "MarkFlagFilename",
+          "kind": "func",
+          "file": "shell_completions.go",
+          "line": 44
+        },
+        {
+          "name": "MarkFlagCustom",
+          "kind": "func",
+          "file": "shell_completions.go",
+          "line": 54
+        },
+        {
+          "name": "MarkPersistentFlagFilename",
+          "kind": "func",
+          "file": "shell_completions.go",
+          "line": 61
+        },
+        {
+          "name": "MarkFlagFilename",
+          "kind": "func",
+          "file": "shell_completions.go",
+          "line": 67
+        },
+        {
+          "name": "MarkFlagCustom",
+          "kind": "func",
+          "file": "shell_completions.go",
+          "line": 77
+        },
+        {
+          "name": "MarkFlagDirname",
+          "kind": "func",
+          "file": "shell_completions.go",
+          "line": 83
+        },
+        {
+          "name": "MarkPersistentFlagDirname",
+          "kind": "func",
+          "file": "shell_completions.go",
+          "line": 90
+        },
+        {
+          "name": "MarkFlagDirname",
+          "kind": "func",
+          "file": "shell_completions.go",
+          "line": 96
+        },
+        {
+          "name": "GenZshCompletionFile",
+          "kind": "func",
+          "file": "zsh_completions.go",
+          "line": 25
+        },
+        {
+          "name": "GenZshCompletion",
+          "kind": "func",
+          "file": "zsh_completions.go",
+          "line": 31
+        },
+        {
+          "name": "GenZshCompletionFileNoDesc",
+          "kind": "func",
+          "file": "zsh_completions.go",
+          "line": 36
+        },
+        {
+          "name": "GenZshCompletionNoDesc",
+          "kind": "func",
+          "file": "zsh_completions.go",
+          "line": 42
+        },
+        {
+          "name": "MarkZshCompPositionalArgumentFile",
+          "kind": "func",
+          "file": "zsh_completions.go",
+          "line": 55
+        },
+        {
+          "name": "MarkZshCompPositionalArgumentWords",
+          "kind": "func",
+          "file": "zsh_completions.go",
+          "line": 66
+        }
+      ]
+    },
+    {
+      "path": "doc",
+      "go_package": "doc",
+      "doc": "Copyright 2013-2023 The Cobra Authors  Licensed under the Apache License, Version 2.0 (the \"License\"); you may not use this file except in compliance with the License. You may obtain a copy of the Lic",
+      "files": [
+        "doc/man_docs.go",
+        "doc/md_docs.go",
+        "doc/rest_docs.go",
+        "doc/util.go",
+        "doc/yaml_docs.go"
+      ],
+      "symbols": [
+        {
+          "name": "GenManTree",
+          "kind": "func",
+          "file": "doc/man_docs.go",
+          "line": 38
+        },
+        {
+          "name": "GenManTreeFromOpts",
+          "kind": "func",
+          "file": "doc/man_docs.go",
+          "line": 48
+        },
+        {
+          "name": "GenMan",
+          "kind": "func",
+          "file": "doc/man_docs.go",
+          "line": 105
+        },
+        {
+          "name": "GenManTreeOptions",
+          "kind": "type",
+          "file": "doc/man_docs.go",
+          "line": 84
+        },
+        {
+          "name": "GenManHeader",
+          "kind": "type",
+          "file": "doc/man_docs.go",
+          "line": 94
+        },
+        {
+          "name": "GenMarkdown",
+          "kind": "func",
+          "file": "doc/md_docs.go",
+          "line": 52
+        },
+        {
+          "name": "GenMarkdownCustom",
+          "kind": "func",
+          "file": "doc/md_docs.go",
+          "line": 57
+        },
+        {
+          "name": "GenMarkdownTree",
+          "kind": "func",
+          "file": "doc/md_docs.go",
+          "line": 125
+        },
+        {
+          "name": "GenMarkdownTreeCustom",
+          "kind": "func",
+          "file": "doc/md_docs.go",
+          "line": 133
+        },
+        {
+          "name": "GenReST",
+          "kind": "func",
+          "file": "doc/rest_docs.go",
+          "line": 57
+        },
+        {
+          "name": "GenReSTCustom",
+          "kind": "func",
+          "file": "doc/rest_docs.go",
+          "line": 62
+        },
+        {
+          "name": "GenReSTTree",
+          "kind": "func",
+          "file": "doc/rest_docs.go",
+          "line": 138
+        },
+        {
+          "name": "GenReSTTreeCustom",
+          "kind": "func",
+          "file": "doc/rest_docs.go",
+          "line": 145
+        },
+        {
+          "name": "Len",
+          "kind": "func",
+          "file": "doc/util.go",
+          "line": 50
+        },
+        {
+          "name": "Swap",
+          "kind": "func",
+          "file": "doc/util.go",
+          "line": 51
+        },
+        {
+          "name": "Less",
+          "kind": "func",
+          "file": "doc/util.go",
+          "line": 52
+        },
+        {
+          "name": "GenYamlTree",
+          "kind": "func",
+          "file": "doc/yaml_docs.go",
+          "line": 53
+        },
+        {
+          "name": "GenYamlTreeCustom",
+          "kind": "func",
+          "file": "doc/yaml_docs.go",
+          "line": 60
+        },
+        {
+          "name": "GenYaml",
+          "kind": "func",
+          "file": "doc/yaml_docs.go",
+          "line": 88
+        },
+        {
+          "name": "GenYamlCustom",
+          "kind": "func",
+          "file": "doc/yaml_docs.go",
+          "line": 93
+        }
+      ]
+    }
+  ]
+}

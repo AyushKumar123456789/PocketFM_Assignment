@@ -1,0 +1,56 @@
+{
+  "number": 2376,
+  "title": "bug: `ValidArgsFunction` receives partial input when argument contains colons in Bash",
+  "body": "# Description\nWhen using dynamic shell completion via `ValidArgsFunction`, splitting on colons `:` causes the input string `toComplete` to be truncated. Instead of receiving the full logical argument, the function receives only the segment after the last colon, while the prefix is moved into the `args` slice.\n\nThis makes implementing context-aware completions for URI-like schemes (e.g., `local:/path`, `s3://bucket`) or filesystem providers extremely brittle and non-portable across shells.\n\n# Minimum Viable Example (MVE)\n```golang\npackage main\n\nimport (\n\t\"fmt\"\n\t\"os\"\n\n\t\"github.com/spf13/cobra\"\n)\n\nfunc main() {\n\trootCmd := &cobra.Command{\n\t\tUse: \"repro\",\n\t}\n\n\tlsCmd := &cobra.Command{\n\t\tUse:   \"ls <path>\",\n\t\tShort: \"Reproduction for colon split issue\",\n\t\tArgs:  cobra.MaximumNArgs(1),\n\t\tValidArgsFunction: func(cmd *cobra.Command, args []string, toComplete string) ([]string, cobra.ShellCompDirective) {\n\t\t\t// Log inputs to a file to inspect what the shell is sending\n\t\t\tf, _ := os.OpenFile(\"repro.log\", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)\n\t\t\tif f != nil {\n\t\t\t\tdefer f.Close()\n\t\t\t\t_, _ = f.WriteString(fmt.Sprintf(\"args: %v, toComplete: %q\\n\", args, toComplete))\n\t\t\t}\n\n\t\t\t// We expect to see the full \"local:/path\" here to provide suggestions.\n\t\t\t// However, in Bash, \"local:\" ends up in 'args' and toComplete is just the path.\n\t\t\treturn []string{\"local:/tmp/file1\", \"local:/tmp/file2\"}, cobra.ShellCompDirectiveNoFileComp\n\t\t},\n\t\tRun: func(cmd *cobra.Command, args []string) {\n\t\t\tfmt.Printf(\"args: %v\\n\", args)\n\t\t},\n\t}\n\n\trootCmd.AddCommand(lsCmd)\n\tif err := rootCmd.Execute(); err != nil {\n\t\tos.Exit(1)\n\t}\n}\n```\n\n## Steps to Reproduce\n1. Build the reproduction: `go build -o repro main.go`\n2. Enable Bash completion: `source <(./repro completion bash)`\n3. Type the following and press **TAB**: `./repro ls local:/`\n4. Inspect the generated `repro.log`.\n\n## Actual Behavior\nThe log shows:\n`args: [local :], toComplete: \"/\"`\n\nBash has split the word at the colon. Cobra's completion logic follows this split, forcing the developer to manually reconstruct the original word from `args` and `toComplete` to understand the context (in this case, that the user is asking for completion from the `local` provider). which differs from usage with `PreRunE` and `RunE` which accept them as one argument\n\n## Expected Behavior\n`toComplete` should ideally represent the full word as it does in `PreRunE` and `RunE`.\n\nFor example:\n`args: [], toComplete: \"local:/\"`\n\n# Environment\n- **Cobra Version:** v1.10.2\n- **OS:** Linux\n- **Shell:** Bash 5.2+ (with `bash-completion` enabled)",
+  "labels": [],
+  "state": "open",
+  "url": "https://github.com/spf13/cobra/issues/2376",
+  "comments": [
+    {
+      "url": "https://api.github.com/repos/spf13/cobra/issues/comments/4180021063",
+      "html_url": "https://github.com/spf13/cobra/issues/2376#issuecomment-4180021063",
+      "issue_url": "https://api.github.com/repos/spf13/cobra/issues/2376",
+      "id": 4180021063,
+      "node_id": "IC_kwDOAL_eiM75Jg9H",
+      "user": {
+        "login": "Luap99",
+        "id": 45212748,
+        "node_id": "MDQ6VXNlcjQ1MjEyNzQ4",
+        "avatar_url": "https://avatars.githubusercontent.com/u/45212748?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/Luap99",
+        "html_url": "https://github.com/Luap99",
+        "followers_url": "https://api.github.com/users/Luap99/followers",
+        "following_url": "https://api.github.com/users/Luap99/following{/other_user}",
+        "gists_url": "https://api.github.com/users/Luap99/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/Luap99/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/Luap99/subscriptions",
+        "organizations_url": "https://api.github.com/users/Luap99/orgs",
+        "repos_url": "https://api.github.com/users/Luap99/repos",
+        "events_url": "https://api.github.com/users/Luap99/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/Luap99/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "created_at": "2026-04-02T19:27:53Z",
+      "updated_at": "2026-04-02T19:27:53Z",
+      "body": "I assume this might be related to COMP_WORDBREAKS which contains `:` by default.\nhttps://www.gnu.org/software/bash/manual/html_node/Bash-Variables.html#index-COMP_005fWORDBREAKS\n\nI had some problems in the original version when this was being added, https://github.com/spf13/cobra/pull/1146#issuecomment-652642489, for outputting such values but I never noticed such issues and in fact on my system your reproducer does not show the issue, I get `args: [], toComplete: \"local:/\"`\n\n```\n$ echo $COMP_WORDBREAKS \n\"'><=;|&(:\n```\n\nTested on `bash-5.3.0-2.fc43.x86_64`\n\nWhat is in the debug bash log completion log, i.e. set the log with `export BASH_COMP_DEBUG_FILE=repro.debug` then press tab again\n\nThis shows it working fine in my system:\n```\n========= starting completion logic ==========\ncur is local:/, words[*] is ./repro ls local:/, #words[@] is 3, cword is 2\nTruncated words[*]: ./repro ls local:/,\nlastParam local:/, lastChar /\nCalling ./repro __complete ls local:/\nThe completion directive is: 4\nThe completions are: local:/tmp/file1\nlocal:/tmp/file2\n\nActivating no file completion\n__repro_handle_completion_types: COMP_TYPE is 9\n```\n\nI have written a ton of code which uses colon or equal signs in completion and have never seen user reports on podman that shell completion does not work properly, i.e. check completeKeyValues() here\nhttps://github.com/containers/podman/blob/main/cmd/podman/common/completion.go\n\nSo I assume this is likely related to some environmental factor and not a general problem.\n\n",
+      "author_association": "CONTRIBUTOR",
+      "pin": null,
+      "reactions": {
+        "url": "https://api.github.com/repos/spf13/cobra/issues/comments/4180021063/reactions",
+        "total_count": 2,
+        "+1": 2,
+        "-1": 0,
+        "laugh": 0,
+        "hooray": 0,
+        "confused": 0,
+        "heart": 0,
+        "rocket": 0,
+        "eyes": 0
+      },
+      "performed_via_github_app": null
+    }
+  ]
+}

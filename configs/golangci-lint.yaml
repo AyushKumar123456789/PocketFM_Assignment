@@ -1,0 +1,31 @@
+owner: golangci
+repo: golangci-lint
+clone_url: https://github.com/golangci/golangci-lint.git
+default_branch: main
+
+build_cmd:  ["go", "build", "./..."]
+# golangci-lint has a large test suite; the agent should target affected
+# packages only. The orchestrator does this automatically.
+test_cmd:   ["go", "test", "-count=1", "-short", "./..."]
+vet_cmd:    ["go", "vet", "./..."]
+fmt_cmd:    ["gofmt", "-w"]
+
+convention_paths:
+  - CONTRIBUTING.md
+  - README.md
+  - docs/src/docs/contributing/
+
+ignore_globs:
+  - "vendor/**"
+  - "**/testdata/**"
+  - "docs/**"
+  - "scripts/**"
+
+project_notes: |
+  golangci-lint wraps many linters. Hot spots:
+    - pkg/golinters/         (one file per wrapped linter)
+    - pkg/lint/              (runner, processing)
+    - pkg/config/            (config parsing)
+    - pkg/result/processors/ (post-processing)
+  WARNING: adding/upgrading a linter often pulls big dependency bumps.
+  Prefer issues that touch ONE file unless explicitly asked otherwise.
