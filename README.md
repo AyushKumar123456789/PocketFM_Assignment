@@ -48,8 +48,8 @@ Optional but recommended:
 ### 2. Install
 
 ```powershell
-git clone <this-repo-url>
-cd goagent
+git clone https://github.com/AyushKumar123456789/PocketFM_Assignment.git
+cd PocketFM_Assignment
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1     # bash/zsh: source .venv/bin/activate
 pip install -e .
